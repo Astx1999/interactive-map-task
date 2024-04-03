@@ -2,14 +2,15 @@ import React from 'react';
 import classnames from "classnames";
 import styles from './Button.module.scss'
 
-const Button = ({text, onClick, type = "primary"}) => {
+const Button = ({type, text, onClick, version = "primary", className}) => {
     return (
-        <div
-            className={classnames(styles.root, {[styles[type]]: styles[type]})}
+        <button
+            type={type}
+            className={classnames(className, styles.root, {[styles[version]]: styles[version]})}
             onClick={onClick}
         >
             {text}
-        </div>
+        </button>
     );
 };
 

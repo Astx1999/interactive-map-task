@@ -1,7 +1,7 @@
 import GoogleMapComponent from "./components/GoogleMap/GoogleMap";
 import ListContainer from "./components/ListContainer/ListContainer";
 import {observer} from "mobx-react-lite";
-import {useContext, useState} from "react";
+import {useContext} from "react";
 import {RootStoreContext} from "./stores/RootStore";
 
 import styles from "./App.module.scss"

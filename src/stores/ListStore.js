@@ -23,6 +23,11 @@ class ListStore {
         this.setActiveItem(this.list.length - 1)
     };
 
+    addItems = (data) => {
+        this.list = [...this.list, ...data];
+        this.setActiveItem(this.list.length - 1)
+    };
+
     deleteItem = (index) => {
         if (index >= 0 && index < this.list.length) {
             this.list.splice(index, 1);
