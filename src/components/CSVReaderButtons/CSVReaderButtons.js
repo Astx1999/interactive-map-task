@@ -77,7 +77,7 @@ const CSVReaderButtons = observer(() => {
                     <input
                         type="file"
                         id="file-upload"
-                        accept=".csv, .xlsx, .xls"
+                        accept=".csv"
                         ref={fileInputRef}
                         style={{display: 'none'}}
                         onChange={handleFileSelect}
