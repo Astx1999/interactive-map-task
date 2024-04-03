@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/interactive-map-task/static/css/main.1e6243f4.css",
+    "main.js": "/interactive-map-task/static/js/main.f1ab4f50.js",
+    "index.html": "/interactive-map-task/index.html",
+    "main.1e6243f4.css.map": "/interactive-map-task/static/css/main.1e6243f4.css.map",
+    "main.f1ab4f50.js.map": "/interactive-map-task/static/js/main.f1ab4f50.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1e6243f4.css",
+    "static/js/main.f1ab4f50.js"
+  ]
+}
