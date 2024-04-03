@@ -20,7 +20,7 @@ const ListContainer = observer(({list}) => {
             </div>
 
             {isListOpen && (
-                <div>
+                <div className={styles.content}>
                     <div className={styles.buttons}>
                         <div className={styles.import}>
                             <CSVReaderButtons/>

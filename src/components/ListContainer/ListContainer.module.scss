@@ -45,11 +45,17 @@
   }
 }
 
+.content{
+  @media screen and (max-width: 768px) {
+    height: calc(100% - 30px);
+  }
+}
 .items {
   height: calc(100vh - 130px);
   overflow: auto;
   @media screen and (max-width: 768px) {
-    height: 28vh;
+    height: calc(100% - 60px);
+
   }
 }
 
