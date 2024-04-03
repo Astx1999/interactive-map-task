@@ -1,0 +1,45 @@
+.cross {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  border-radius: 8px;
+}
+
+.cross:before,
+.cross:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: #6F7F95;
+  transform-origin: center;
+  border-radius: 9px;
+}
+
+.cross:before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.cross:after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.primary{
+  background-color: #f3f6f9;
+  border: 1px solid #E5EAF2;
+  &:before,
+  &:after {
+    width: 60%;
+  }
+}
+
+.secondary{
+  background-color: transparent;
+  border: none;
+  &:before,
+  &:after {
+    width: 40%;
+  }
+}
