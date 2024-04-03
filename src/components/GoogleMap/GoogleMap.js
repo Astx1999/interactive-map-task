@@ -4,6 +4,10 @@ import {observer} from "mobx-react-lite";
 import ConfirmModal from "../ConfirmModal/ConfirmModal";
 import {RootStoreContext} from "../../stores/RootStore";
 import handleApiPath from "../../utils/handleApiPath";
+
+import {mapColors} from "../../constants/mapColors";
+import Select from "react-select";
+
 import styles from './GoogleMap.module.scss'
 
 const containerStyle = {
@@ -18,7 +22,12 @@ const GoogleMapComponent = observer(() => {
     const [center, setCenter] = useState({lat: 51.1657, lng: 10.4515});
     const {isLoaded} = useJsApiLoader({googleMapsApiKey: handleApiPath("REACT_APP_GOOGLE_API_KEY"),});
 
-    console.log(activeItem)
+    const [currentStyleIndex, setCurrentStyleIndex] = useState(0);
+
+    const mapOptions = {
+        styles: mapColors[currentStyleIndex].style,
+    };
+
     useEffect(() => {
         // calculating active item location and move map to center
         if (activeItem) {
@@ -55,28 +64,46 @@ const GoogleMapComponent = observer(() => {
         setPopupPosition(null);
     };
 
+    const options = mapColors.map((color, index) => ({
+        value: index,
+        label: color.name
+    }));
+
     return isLoaded ? (
-        <GoogleMap
-            mapContainerClassName={styles.map}
-            mapContainerStyle={containerStyle}
-            center={center}
-            zoom={6}
-            onClick={handleMapClick}
-        >
-            {popupPosition && showPopup && (
-                <InfoWindow position={popupPosition} onCloseClick={handleClosePopup}>
-                    <ConfirmModal
-                        isOpen={popupPosition && showPopup}
-                        question="Do you want to add the location to the list?"
-                        handleAddLocation={handleAddLocation}
-                        handleClosePopup={handleClosePopup}
-                        confirmText={"Add"}
-                        rejectText={"Cancel"}
-                    />
-                </InfoWindow>
-            )}
-            {activeItem && <Marker position={activeItem}/>}
-        </GoogleMap>
+        <div className={styles.root}>
+
+            <div className={styles.select}>
+                <Select
+                    value={options[currentStyleIndex]}
+                    menuPlacement="top"
+                    options={options}
+                    onChange={(option) => setCurrentStyleIndex(option.value)}/>
+            </div>
+
+            <GoogleMap
+                options={mapOptions}
+                mapContainerClassName={styles.map}
+                mapContainerStyle={containerStyle}
+                center={center}
+                zoom={6}
+                onClick={handleMapClick}
+            >
+                {popupPosition && showPopup && (
+                    <InfoWindow position={popupPosition} onCloseClick={handleClosePopup}>
+                        <ConfirmModal
+                            isOpen={popupPosition && showPopup}
+                            question="Do you want to add the location to the list?"
+                            handleAddLocation={handleAddLocation}
+                            handleClosePopup={handleClosePopup}
+                            confirmText={"Add"}
+                            rejectText={"Cancel"}
+                        />
+                    </InfoWindow>
+                )}
+                {activeItem && <Marker position={activeItem}/>}
+            </GoogleMap>
+        </div>
+
     ) : <></>;
 });
 
