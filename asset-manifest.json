@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.css": "/interactive-map-task/static/css/main.d803c079.css",
+    "main.js": "/interactive-map-task/static/js/main.e6388227.js",
+    "index.html": "/interactive-map-task/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.d803c079.css",
+    "static/js/main.e6388227.js"
+  ]
+}
