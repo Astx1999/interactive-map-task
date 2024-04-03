@@ -17,5 +17,5 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 Builds the app for production to the `build` folder.
 
 ## Learn More
-
-Before running the project locally please copy the content of `.env.example` into a new `.env` file and set your google map key
+- Use the CSV format as demonstrated in the root directory file `data.csv`.
+- Before running the project locally please copy the content of `.env.example` into a new `.env` file and set your google map key
