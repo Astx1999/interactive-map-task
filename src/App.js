@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import GoogleMapComponent from "./components/GoogleMap/GoogleMap";
+import ListContainer from "./components/ListContainer/ListContainer";
+import {observer} from "mobx-react-lite";
+import {useContext, useState} from "react";
+import {RootStoreContext} from "./stores/RootStore";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import styles from "./App.module.scss"
+
+
+const App = observer(() => {
+    const {
+        listStore: {list}
+    } = useContext(RootStoreContext)
+
+    return (
+        <div className={styles.root}>
+            <GoogleMapComponent/>
+            <div className={styles.list}>
+                <ListContainer list={list}/>
+            </div>
+        </div>
+    );
+})
 
 export default App;
