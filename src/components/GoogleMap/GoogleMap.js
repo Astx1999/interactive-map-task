@@ -73,6 +73,7 @@ const GoogleMapComponent = observer(() => {
         <div className={styles.root}>
 
             <div className={styles.select}>
+                <label htmlFor="select" className={styles.mapModeText}>Map mode</label>
                 <Select
                     value={options[currentStyleIndex]}
                     menuPlacement="top"
